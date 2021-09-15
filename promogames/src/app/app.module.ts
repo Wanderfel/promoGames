@@ -26,11 +26,20 @@ import {FormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { GamesReadComponent } from './components/games/games-read/games-read.component';
-import { GamesReadTableComponent } from './components/games/games-read-table/games-read-table.component';
+
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { GamesUpdateComponent } from './components/games/games-update/games-update.component';
+import { LojasCrudComponent } from './views/lojas-crud/lojas-crud.component';
+import { LojasCreateComponent } from './components/lojas/lojas-create/lojas-create.component';
+import { LojasReadComponent } from './components/lojas/lojas-read/lojas-read.component';
+import { LojasUpdateComponent } from './components/lojas/lojas-update/lojas-update.component';
+import { CategoriasCrudComponent } from './views/categorias-crud/categorias-crud.component';
+import { CategoriasCreateComponent } from './components/categorias/categorias-create/categorias-create.component';
+import { CategoriasReadComponent } from './components/categorias/categorias-read/categorias-read.component';
+import { CategoriasUpdateComponent } from './components/categorias/categorias-update/categorias-update.component';
+
 
 @NgModule({
   declarations: [
@@ -42,8 +51,15 @@ import { GamesUpdateComponent } from './components/games/games-update/games-upda
     GamesCrudComponent,
     GamesCreateComponent,
     GamesReadComponent,
-    GamesReadTableComponent,
     GamesUpdateComponent,
+    LojasCrudComponent,
+    LojasCreateComponent,
+    LojasReadComponent,
+    LojasUpdateComponent,
+    CategoriasCrudComponent,
+    CategoriasCreateComponent,
+    CategoriasReadComponent,
+    CategoriasUpdateComponent,
     
     
   ],

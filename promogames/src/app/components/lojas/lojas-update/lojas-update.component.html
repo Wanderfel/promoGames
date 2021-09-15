@@ -1,0 +1,12 @@
+
+<mat-card>
+    <mat-card-title>Alterar Loja</mat-card-title>
+    <form action="">
+        <mat-form-field>
+            <input matInput placeholder="Nome" [(ngModel)]="loja.nome" name="nome">
+        </mat-form-field>
+        
+    </form>
+    <button mat-raised-button (click)="updateLojas()" color="primary" >Salvar</button>
+    <button mat-raised-button (click)="cancelLojas()">Cancelar</button>
+</mat-card>

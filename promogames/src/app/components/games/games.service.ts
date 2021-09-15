@@ -9,7 +9,7 @@ import { Game } from './games.model';
 })
 export class GamesService {
 
-  baseUrl = "http://localhost:3001/games"
+  baseUrl = "http://localhost:8080/games"
   static delete: any;
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }

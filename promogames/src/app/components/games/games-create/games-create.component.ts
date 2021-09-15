@@ -16,15 +16,15 @@ export class GamesCreateComponent implements OnInit {
     preco:0.0
   }
 
-  constructor(private GamesService: GamesService, private router: Router) { }
+  constructor(private gamesService: GamesService, private router: Router) { }
 
   ngOnInit(): void {
     
   }
 
   createGames():void{
-    this.GamesService.create(this.game).subscribe(()=>{
-      this.GamesService.showMessage("Game Cadastrado !")
+    this.gamesService.create(this.game).subscribe(()=>{
+      this.gamesService.showMessage("Game Cadastrado !")
       this.router.navigate(['/games'])
     })
     
