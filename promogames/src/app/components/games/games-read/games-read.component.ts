@@ -11,7 +11,7 @@ import { GamesService } from '../games.service';
 export class GamesReadComponent implements OnInit {
 
   games!: Game[]
-  displayedColumns = ['id','nome','preco','acao']
+  displayedColumns = ['id','nome','preco','categoria','loja','acao']
 
   constructor(private gamesService: GamesService) { }
 

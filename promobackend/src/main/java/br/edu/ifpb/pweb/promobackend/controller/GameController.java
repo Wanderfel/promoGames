@@ -33,7 +33,7 @@ public class GameController {
     }
 
     @PostMapping("/games")
-    public Game inserirUsuario(@RequestBody Game game){
+    public Game inserirGame(@RequestBody Game game){
         return this.gameService.inserirOuAtualizar(game);
     }
 

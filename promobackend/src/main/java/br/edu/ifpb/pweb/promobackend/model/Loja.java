@@ -14,6 +14,13 @@ public class Loja {
     private Long id;
     private String nome;
 
+    public Loja(String nome) {
+        this.nome = nome;
+    }
+
+    public Loja() {
+    }
+
     public Long getId() {
         return id;
     }

@@ -10,6 +10,24 @@
             <input matInput placeholder="Preço (R$)" [(ngModel)]="game.preco" name="preco">
         </mat-form-field>
 
+        <mat-form-field>
+            <input matInput placeholder="Link" [(ngModel)]="game.link" name="link">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+        <mat-label>Selecione uma loja</mat-label>
+            <mat-select [(ngModel)]="game.loja" name="loja">
+              <mat-option *ngFor="let loja of lojas"  [value]="loja.nome">{{loja.nome}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Selecione uma categoria</mat-label>
+                <mat-select [(ngModel)]="game.categoria" name="categoria">
+                  <mat-option *ngFor="let categoria of categorias"  [value]="categoria.nome">{{categoria.nome}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
         
     </form>
     <button mat-raised-button (click)="createGames()" color="primary" >Salvar</button>
