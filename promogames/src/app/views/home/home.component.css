@@ -1,4 +1,5 @@
 .home .title{
+    color:#212121;
     font-size:3rem;
     font-weight: 100px;
     line-height: 1.5;
@@ -9,6 +10,7 @@
 
 .home{
     margin-left: 15px;
+    background-color: white;
 }
 
 .example-card {
