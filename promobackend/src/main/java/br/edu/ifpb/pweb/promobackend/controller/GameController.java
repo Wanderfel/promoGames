@@ -1,5 +1,6 @@
 package br.edu.ifpb.pweb.promobackend.controller;
 
+import br.edu.ifpb.pweb.promobackend.dto.GameDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,12 +34,12 @@ public class GameController {
     }
 
     @PostMapping("/games")
-    public Game inserirGame(@RequestBody Game game){
+    public Game inserirGame(@RequestBody GameDto game) throws Exception {
         return this.gameService.inserirOuAtualizar(game);
     }
 
-    @PutMapping("/games/{id}")
-    public Game atualizarGame(@RequestBody Game game){
+    @PutMapping("/games")
+    public Game atualizarGame(@RequestBody GameDto game) throws Exception {
         return this.gameService.inserirOuAtualizar(game);
     }
 

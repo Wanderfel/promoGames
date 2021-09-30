@@ -1,10 +1,11 @@
 package br.edu.ifpb.pweb.promobackend.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static javax.persistence.CascadeType.ALL;
 
 @Entity
 @Table(name = "tb_loja")
@@ -13,6 +14,12 @@ public class Loja {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
+
+    @OneToMany(
+            mappedBy = "loja",
+            cascade = ALL
+    )
+    private List<Game> games = new ArrayList<Game>();
 
     public Loja(String nome) {
         this.nome = nome;
@@ -24,6 +31,7 @@ public class Loja {
     public Long getId() {
         return id;
     }
+
     public String getNome() {
         return nome;
     }

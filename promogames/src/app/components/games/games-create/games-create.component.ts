@@ -18,13 +18,13 @@ export class GamesCreateComponent implements OnInit {
   game: Game = {
     nome:'',
     preco:0.0,
-    loja:'',
-    categoria:'',
+    loja:0,
+    categoria:0,
     link:'',
   }
 
-  lojas!: Loja[]
-  categorias!:Categoria[]
+  lojas!: any
+  categorias!:any
 
   constructor(private gamesService: GamesService, private router: Router, private lojasService:LojasService, private categoriasService:CategoriasService) { }
 
@@ -34,7 +34,7 @@ export class GamesCreateComponent implements OnInit {
   }
 
   createGames():void{
-    console.log("essa é a loja:",this.game.loja)
+   
     this.gamesService.create(this.game).subscribe(()=>{
       this.gamesService.showMessage("Game Cadastrado !")
       this.router.navigate(['/games'])
@@ -43,25 +43,35 @@ export class GamesCreateComponent implements OnInit {
 
   }
 
+
   getLojas(){
     this.lojasService.read().subscribe(lojas=>{
-      this.lojas = lojas
-      console.log(this.lojas)
+      if(lojas.length == 0){
+       
+        this.gamesService.showMessage("É necessário cadastrar uma loja antes")
+        this.router.navigate(['/games'])
+      }else{
+        this.lojas = lojas
+
+      }
     })
   }
 
   getCategorias(){
     this.categoriasService.read().subscribe(categorias=>{
-      this.categorias = categorias
-      console.log(this.categorias)
+
+      if(categorias.length == 0){
+  
+        this.gamesService.showMessage("É necessário cadastrar uma categoria antes")
+        this.router.navigate(['/games'])
+      }else{
+
+        this.categorias = categorias
+      }
     })
   }
 
-  lojaSelecionada(value: string){
-
-    console.log("passou por aqui:",value)
-    this.game.loja=value;
-  }
+  
 
   cancelGames():void{
     this.router.navigate(['/games'])

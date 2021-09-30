@@ -14,7 +14,7 @@ export class LojasCrudComponent implements OnInit {
   }
 
   navigateToLojasCreate():void{
-    console.log("passou")
+
     this.router.navigate(['/lojas/create'])
   }
 }

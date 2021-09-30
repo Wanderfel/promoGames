@@ -20,7 +20,7 @@ export class GamesService {
       horizontalPosition:"right",
       verticalPosition:"top"
     })
-    console.log(msg)
+   
   }
 
   
@@ -38,8 +38,8 @@ export class GamesService {
     return this.http.get<Game>(url)
   }
   update(game: Game): Observable<Game>{
-    const url = `${this.baseUrl}/${game.id}`
-    return this.http.put<Game>(url,game)
+    //const url = `${this.baseUrl}/`
+    return this.http.put<Game>(this.baseUrl,game)
   }
 
   delete(game: Game): Observable<Game>{

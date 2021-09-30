@@ -4,11 +4,7 @@ package br.edu.ifpb.pweb.promobackend.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tb_game")
@@ -18,11 +14,16 @@ public class Game {
     private Long id;
     private String nome;
     private Float preco;
-    private String loja;
-    private String categoria;
     private String link;
 
-    public Game(String nome, Float preco, String loja, String categoria, String link) {
+    @ManyToOne
+    private Loja loja;
+
+    @ManyToOne
+    private Categoria categoria;
+
+    public Game(String nome, Float preco, Loja loja, Categoria categoria, String link) {
+
         this.nome = nome;
         this.preco = preco;
         this.loja = loja;
@@ -53,19 +54,19 @@ public class Game {
         this.preco = preco;
     }
 
-    public String getLoja() {
+    public Loja getLoja() {
         return loja;
     }
 
-    public void setLoja(String loja) {
+    public void setLoja(Loja loja) {
         this.loja = loja;
     }
 
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 

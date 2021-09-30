@@ -7,6 +7,7 @@ import { Loja } from '../../lojas/lojas.model';
 import { CategoriasService } from '../../categorias/categorias.service';
 import { Categoria } from '../../categorias/categorias.model';
 
+
 @Component({
   selector: 'app-games-update',
   templateUrl: './games-update.component.html',
@@ -14,7 +15,16 @@ import { Categoria } from '../../categorias/categorias.model';
 })
 export class GamesUpdateComponent implements OnInit {
 
-  game!: Game;
+  categoriaSelected!:any
+  lojaSelected!:any
+  game: Game = {
+    id:0,
+    nome:'',
+    preco:0.0,
+    loja:0,
+    categoria:0,
+    link:'',
+  }
   lojas!: Loja[]
   categorias!:Categoria[]
 
@@ -24,12 +34,24 @@ export class GamesUpdateComponent implements OnInit {
     this.getLojas()
     this.getCategorias()
     const id = this.route.snapshot.paramMap.get('id')
+
     this.gameService.readByID(id).subscribe(game=>{
-      this.game = game
+      this.categoriaSelected = game.categoria
+      this.lojaSelected = game.loja
+      this.game.categoria = this.categoriaSelected.id
+      this.game.loja = this.lojaSelected.id
+      this.game.id = Number(id)
+      this.game.nome = game.nome
+      this.game.preco = game.preco
+      this.game.link = game.link
+   
+      
+      
     })
   }
 
   updateGames(): void{
+
     this.gameService.update(this.game).subscribe(()=>{
       this.gameService.showMessage('Game Atualizado !')
       this.router.navigate(['/games'])
@@ -39,14 +61,14 @@ export class GamesUpdateComponent implements OnInit {
   getLojas(){
     this.lojasService.read().subscribe(lojas=>{
       this.lojas = lojas
-      console.log(this.lojas)
+
     })
   }
 
   getCategorias(){
     this.categoriasService.read().subscribe(categorias=>{
       this.categorias = categorias
-      console.log(this.categorias)
+    
     })
   }
 

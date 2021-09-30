@@ -11,8 +11,8 @@
             <mat-card-content class = 'content'>
                 <mat-card-title >{{game.nome}}</mat-card-title>
                 <mat-card-title >{{game.preco | currency:'BRL'}}</mat-card-title>
-                <mat-card-subtitle>{{game.loja}}</mat-card-subtitle>
-                <mat-card-subtitle>{{game.categoria}}</mat-card-subtitle>
+                <mat-card-subtitle>{{game.loja.nome}}</mat-card-subtitle>
+                <mat-card-subtitle>{{game.categoria.nome}}</mat-card-subtitle>
                 <a href="{{game.link}}" target="_blank">Link para Loja</a>
             </mat-card-content>
         </mat-card>  

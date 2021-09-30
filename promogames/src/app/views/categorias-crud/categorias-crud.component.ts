@@ -14,7 +14,7 @@ export class CategoriasCrudComponent implements OnInit {
   }
 
   navigateToCategoriasCreate():void{
-    console.log("passou")
+  
     this.router.navigate(['/categorias/create'])
   }
 
